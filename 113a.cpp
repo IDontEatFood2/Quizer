@@ -71,7 +71,30 @@ vector<Questions> quiz = {
     {"Website address is called?\na. URL\nb. ISP\nc. Server\nd. Browser\n", "a"},
     {"Which protects your data online?\na. Malware\nb. Cybersecurity\nc. Phishing\nd. Netiquette\n", "b"},
     {"Fake links that steal information?\na. Malware\nb. Phishing\nc. Strong passwords\nd. Backup\n", "b"},
-    {"Which is proper online behavior?\na. Netiquette\nb. Virus\nc. Malware\nd. Hack\n", "a"}
+    {"Which is proper online behavior?\na. Netiquette\nb. Virus\nc. Malware\nd. Hack\n", "a"},
+    {"What type of software tells the computer what to do and manages hardware?\na. Application Software\nb. System Software\nc. Utility Program\nd. Operating System\n", "b"},
+{"Which type of software performs specific user tasks?\na. System Software\nb. Application Software\nc. Driver\nd. Utility Program\n", "b"},
+{"Which is the main system software that manages memory, devices, and files?\na. Driver\nb. OS\nc. Utility Program\nd. Application Software\n", "b"},
+{"Booting a computer refers to?\na. Installing software\nb. Starting the computer and loading OS\nc. Shutting down\nd. Running a program\n", "b"},
+{"Which stores data temporarily before transfer in the OS?\na. Buffer\nb. Driver\nc. File Manager\nd. Printer\n", "a"},
+{"Which holds print jobs until the printer is ready?\na. Multitasking\nb. Buffer\nc. Print Spooling\nd. Driver\n", "c"},
+{"Which allows running multiple programs at the same time?\na. Buffer\nb. Multitasking\nc. Print Spooling\nd. File Manager\n", "b"},
+{"Which allows the OS to communicate with hardware devices?\na. File Manager\nb. Driver\nc. Performance Monitor\nd. Utility Program\n", "b"},
+{"Which keeps track of file locations and allows quick retrieval?\na. Driver\nb. Buffer\nc. File Manager\nd. Performance Monitor\n", "c"},
+{"Which checks CPU, memory, and disk performance?\na. Driver\nb. Performance Monitor\nc. Buffer\nd. File Manager\n", "b"},
+{"Which interface requires typing commands?\na. GUI\nb. CLI\nc. Menu\nd. Desktop\n", "b"},
+{"Which interface uses icons, menus, and windows?\na. CLI\nb. GUI\nc. Driver\nd. File Manager\n", "b"},
+{"Which of these is a GUI element displaying program or data?\na. Desktop\nb. Display Window\nc. Menu\nd. Icon\n", "b"},
+{"Which OS is popular and comes in versions like 2000, XP, and Vista?\na. Mac OS\nb. Windows\nc. Linux\nd. IBM OS/2\n", "b"},
+{"Which OS is user-friendly with strong graphics?\na. Linux\nb. Windows\nc. Mac OS\nd. IBM OS/2\n", "c"},
+{"Which OS is open-source, free, and secure?\na. Mac OS\nb. Windows\nc. Linux\nd. IBM OS/2\n", "c"},
+{"Which server OS is used for file sharing and local area networks?\na. UNIX\nb. Novell NetWare\nc. Linux\n", "b"},
+{"Which OS can run on multiple platforms, from PCs to supercomputers?\na. UNIX\nb. Windows Server\nc. Palm OS\n", "a"},
+{"Which OS is used in handheld devices like PDAs and early smartphones?\na. Linux\nb. Palm OS\nc. Windows Server\n", "b"},
+{"Which OS is used in embedded devices and smartphones?\na. Palm OS\nb. Windows Mobile\nc. UNIX\n", "b"},
+{"Which program blocks unauthorized access to your computer or network?\na. Utility Program\nb. Firewall\nc. Driver\nd. Application Software\n", "b"},
+{"Which program converts programming code into machine language?\na. Utility Program\nb. Translator\nc. Driver\nd. File Manager\n", "b"}
+
 
 
 }; 
