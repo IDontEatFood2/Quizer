@@ -26,7 +26,7 @@ int main (){
 random_device rd;
 mt19937 g(rd()); 
 
-int score;
+int score = 0;
 
 
 vector<Questions> quiz = {
@@ -128,3 +128,4 @@ shuffle(quiz.begin(), quiz.end(), g);
         }
     return 0;
 }
+
