@@ -121,11 +121,12 @@ shuffle(quiz.begin(), quiz.end(), g);
     cout << "You have finished the quiz, Your final score is: " << score << endl;
         if (score == quiz.size()){
             cout << "You earned a perfect score! ";
-        } else if (score == quiz.size()/2) {
-            cout << "That was close better luck next time! " << endl;
+        } else if (score > quiz.size()/2) {
+            cout << "That was close you had only " <<  quiz.size()- score << " wrong. better luck next time! " << endl;
         }else {
             cout << "Review more dude " << endl;
         }
     return 0;
 }
+
 
