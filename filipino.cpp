@@ -4,78 +4,104 @@
 #include <vector>
 #include <random>
 #include <cstdlib>
+using namespace std; 
 
-
-std::string turnToLowerCase (std::string userAnswer){
+string turnToLowerCase (string userAnswer){
     for (char &letter : userAnswer){
-        letter = tolower(letter);
+        letter = tolower(letter); 
 
     }
- return userAnswer;
-}
+return userAnswer;
+} 
 
 struct Questions
 {
-    std::string question;
-    std::string answer;
+    string question;
+    string answer;
 };
 
 
 int main (){
 // Makes the quiz random
-std::random_device rd;
-std::mt19937 g(rd());
+random_device rd;
+mt19937 g(rd()); 
 
 int score = 0;
 
 
-std::vector<Questions> quiz = {
-        {"Is the system of naming or representing numbers.", "number system"},
-        {"In mathematics is an expression, which is made up of variables and constants,.", "algebraic expressions"},
-        {"In 8x + 6, What is the x.", "variable"},
-        {"In 8x + 6, What is the 8.", "coefficient"},
-        {"In 8x + 6, What is the 6.", "constant"},
-        {"In 8x + 6, What is the whole 8x + 6.", "term"},
-        {"What are the three types of algebraic expression.", "monomial, binomial, polynomial"},
-        {"Indicates that you can draw an imaginary line across an object and the resulting parts are mirror images of each other..", "symmetry"},
-        {"What is the golden ratio.", "1.681"},
-        {"What is the golden ratio often represented as by (What is its symbol name 'p').", "phi"},
-        {"Who was the man who created fibbonacci sequence.", "leonardo pisano bogollo"},
-        {"Where did Leonardo Pisano Bogollo live?", "italy"},
-        {"A situation that requires a solution, but there is no immediately clear way to reach it..", "problem"},
-        {"A situation that requires a solution, but there is no immediately clear way to reach it..", "problem solving"},
-        {"Forming a conclusion (called a conjecture) based on specific examples..", "inductive reasoning"},
-        {"Reaching a conclusion by applying general principles.", "deductive reasoning"},
-        {"Used inductive and deductive reasoning to show how a mathematical procedure works..", "logic"},
-        {"The study of numbers, number patterns and relationships, counting and measuring", "mathematics"}
-};
+vector<Questions> quiz = {
+    // LESSON 1
+    {"Maaring maging sanhi ng hindi pagkaunawaan", "sagabal"},
+    {"Mga Dahilan ng pakikipagkomunikasyon ng tao", "pangangailangan makilala ang sarili, makisalamuha o makihalubilo, praktikal"},
+    {"Sagabal dahil sa Wika", "semantikong sagabal"},
+    {"kundisyon sa katawan", "pisyolohikal na sagabal"},
+    {"Elemento ng Komunikasyon", "sender, mensahe, daluyan, receiver, sagabal, tugon, epekto, konteksto"},
+    {"Sagabal dahil sa ingay sa paligid", "pisikal na sagabal"},
+    {"Sagabal dahil sa teknolohikal", "teknolohiya na sagabal"},
+    {"Sagabal dahil sa Mental disorder", "sikolohikal na sagabal"},
+    {"inner self", "intrapersonal"},
+    {"2 or more people ang kausap", "interpersonal"},
+    {"ginagamitan ng sosyal media", "pangmadlang na komunikasyon"},
+    {"Ano ang tawag sa pagbibigay ng impormasyon?", "komunikasyon"},        
+    {"Sino ang nagsabi noong 1985: 'patuloy na pakikipag-usap'?", "louis allen"},
+    {"Sino ang nagsabi noong 1967: 'proseso ng pagpapasa at pag-unawa'?", "keith davis"},
+    {"Sino ang nagsabi noong 1977: 'pagpapalitan ng impormasyon, idea, opinion'?", "newman at summer"},
+    {"Sino ang nagsabi noong 1987: 'pagpapasa ng nararamdaman'?", "birvenu"},
+    {"Sino ang nagsabi noong 2011: 'kalahok'?", "keyton"},
 
-std::shuffle(quiz.begin(), quiz.end(), g);
-    std::cout << "=== Random Identification Quiz: Math ===\n\n";
+    // LESSON 2
+    {"tumutukoy sa sining, batas, moral at kaugalian ng iba", "kultura"},
+    {"sumasalamin sa wika na mayroon ang isang bansa", "kultura"},
+    {"Batikang antripologo (bihasa sa kasaysayan)", "edward t. hall"},
+    {"Saan nagtapos si Edward t. Hall", "stados unidos"},
+    {"Pamantasan sa amerika ni Edward t. hall", "columbia university"},
+    {"Ginagamit ng direkta ang wika", "low context culture"},
+    {"Pagpapakahulugan ang mga salita na hindi lamang nakabatay sa salitang ginamit", "high context culture"},
+    {"Tumutukoy sa pagiging malay ng isang tao sa pagkakatulad at pagkakaiba ng kultura ng  bawat lipunan", "cultural sensitivity"},
+
+
+    // LESSON 3
+    {"body movement", "kinesika"},
+    {"komunikasyon na ginagamitan ng espasyo", "proksemika"},
+    {"komunikasyong naipaparating ang mensahe gamit ang tono ng pagsasalita", "paralinggwistika"},
+    {"komunikasyong nakabatay sa panahon gaya ng oras", "chronemics"},
+    {"sense of touch, komunikasyong nakabatay sa pandama", "haptics"},
+    {"mata, komunikasyong tumutukoy sa paggamit ng mata", "oculesics"},
+    {"boses, komunikasyong gamit ang tunog maliban pa sa pasalitang tunog", "vocalics"},
+    {"mukha, damdaming nakapaloob sa mukha na ginagamit kapag nakikipag komunikasyon", "pictics"},
+    {"mga simbolo sa paligid na may malinaw na mensahe", "iconics"},
+    {"pang amoy, komunikasyong nakabatay sa pang amoy", "factorics"},
+    {"bagay, paggamit ng bagay sa paghahatid ng komunikasyon", "objectics"},
+    {"kulay, pagpapahiwatig ng mensahe gamit ang kulay", "colorics"}
+
+}; 
+
+shuffle(quiz.begin(), quiz.end(), g);
+    cout << "=== Random Identification Quiz: Komunikasyon ===\n\n"; 
 
     //asks the questions
-    for (int i = 0; i < quiz.size(); i++){
+    for (int i = 0; i < quiz.size(); i++){ 
 
-    std::cout << "________________________________\n" << i+1 << ". " << quiz[i].question << "\n\n> ";
-    std::string answer;
-        getline (std::cin, answer);
+    cout << "__________\n\n" << i+1 << "." << quiz[i].question << "\n\n> ";
+    string answer;
+        getline (cin, answer); 
 
             if (turnToLowerCase(answer) == quiz[i].answer){
-                std::cout << "Correct!\n________________________________" << std::endl;
+                cout << "Correct!\n\n" << endl;
                     score++;
             }else {
-                std::cout << "Incorrect! the answer was: " << quiz[i].answer << "\n" << "________________________________" << std::endl;
+                cout << "Incorrect! the answer was: " << quiz[i].answer << "\n" << endl; 
 
             }
-    }
+    } 
 
-    std::cout << "You have finished the quiz, Your final score is: " << score << std::endl;
+    cout << "You have finished the quiz, Your final score is: " << score << endl;
         if (score == quiz.size()){
-            std::cout << "You earned a perfect score! ";
-        } else if (score == quiz.size()/2) {
-            std::cout << "That was close better luck next time! " << std::endl;
+            cout << "You earned a perfect score! ";
+        } else if (score > quiz.size()/2) {
+            cout << "That was close you had only " <<  quiz.size()- score << " wrong. better luck next time! " << endl;
         }else {
-            std::cout << "Review more dude " << std::endl;
+            cout << "Review more dude " << endl;
         }
-    system("pause");
+    return 0;
 }
