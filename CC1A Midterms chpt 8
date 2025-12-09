@@ -1,0 +1,227 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <random>
+#include <cstdlib>
+using namespace std; 
+
+string turnToLowerCase (string userAnswer){
+    for (char &letter : userAnswer){
+        letter = tolower(letter); 
+
+    }
+return userAnswer;
+} 
+
+struct Questions
+{
+    string question;
+    string answer;
+};
+
+
+int main (){
+// Makes the quiz random
+random_device rd;
+mt19937 g(rd()); 
+
+int score = 0;
+
+
+vector<Questions> quiz = {
+    // LESSON 1
+
+{"What do we call the practice of protecting computers, networks, and data from intruders?\na. Encryption\nb. Computer security\nc. Malware prevention\nd. Digital signature\n", "b"},
+
+{"What minimizes the risk of loss or theft of data within a network?\na. Data loss prevention (DLP)\nb. Rootkit\nc. Botnet\nd. Spam filter\n", "a"},
+
+{"What do we call a person who gains unauthorized access to a computer?\na. Social engineer\nb. Hacker\nc. Bot\nd. Spoofer\n", "b"},
+
+{"What describes a highly targeted, long-term cyberattack used to steal sensitive data?\na. Ransomware\nb. Advanced persistent threat (APT) attack\nc. Phishing\nd. Macro virus\n", "b"},
+
+{"What type of crime involves stealing someone’s personal information for fraud?\na. Identity (ID) theft\nb. Bluesnarfing\nc. Spoofing\nd. Worm attack\n", "a"},
+
+{"What is the process of verifying a user's identity before granting access?\na. Fingerprinting\nb. Authentication\nc. Encryption\nd. Scanning\n", "b"},
+
+{"Which method requires two ways to prove identity, such as password + code?\na. TLS\nb. Two-factor authentication (2FA)\nc. DRP\nd. WPA2\n", "b"},
+
+{"What do we call the scrambling of data so only authorized users can read it?\na. Encryption\nb. Botnet creation\nc. Spoofing\nd. Digital signing\n", "a"},
+
+{"Which key is shared publicly to encrypt a message?\na. Private key\nb. Malware key\nc. Public key\nd. Biometrics key\n", "c"},
+
+{"Which key must be kept secret to decrypt a message?\na. Encryption key\nb. Private key\nc. Public key\nd. Symmetric key\n", "b"},
+
+{"What do we call encryption where one key encrypts and another decrypts?\na. Symmetric encryption\nb. Public key encryption\nc. Malware encryption\nd. Wi-Fi scrambling\n", "b"},
+
+{"Which wireless encryption method is considered old and weak?\na. WPA3\nb. WPA2\nc. WPA\nd. WEP\n", "d"},
+
+{"What is the general term for harmful software like viruses and spyware?\na. Malware\nb. TLS\nc. Authentication\nd. Adware\n", "a"},
+
+{"What do we call unwanted mass email messages?\na. Phishing\nb. Spam\nc. Cookies\nd. Worm traffic\n", "b"},
+
+{"What reproduces itself by attaching to another file?\na. Botnet\nb. Trojan horse\nc. Virus\nd. Worm\n", "c"},
+
+{"What self-replicating program spreads through networks without user action?\na. Worm\nb. Macro virus\nc. Trojan horse\nd. Scareware\n", "a"},
+
+{"Which malware pretends to be a useful program but opens a backdoor?\na. Trojan horse\nb. Adware\nc. Rootkit\nd. Worm\n", "a"},
+
+{"What type of virus hides inside documents and runs when macros execute?\na. Logic bomb\nb. Macro virus\nc. Worm\nd. Adware\n", "b"},
+
+{"What malicious code triggers when certain conditions are met?\na. Symmetric virus\nb. Logic bomb virus\nc. Cookie\nd. Spam bot\n", "b"},
+
+{"What tool hides deep in the system to give attackers access while staying undetected?\na. Rootkit\nb. Honeypot\nc. Biometrics\nd. Cookie\n", "a"},
+
+{"What do we call a collection of infected computers controlled remotely by hackers?\na. Botnet\nb. Adware\nc. WEP\nd. VPN\n", "a"},
+
+{"A computer taken over by malware and controlled as part of an attack is called a…\na. Rootkit\nb. Zombie\nc. Cookie\nd. Macro\n", "b"},
+
+{"Software that secretly monitors a user’s actions without permission is called…\na. Adware\nb. Spyware\nc. Worm\nd. Trojan\n", "b"},
+
+{"Software that delivers unwanted advertisements to a user’s device is called…\na. Adware\nb. Ransomware\nc. Scareware\nd. Trojan horse\n", "a"},
+
+{"What scam tricks users into believing their computer is infected to make them pay?\na. Spoofing\nb. Scareware\nc. Bluesnarfing\nd. APT attack\n", "b"},
+
+{"Which malware locks or encrypts data and demands money to restore access?\na. Ransomware\nb. Trojan horse\nc. Worm\nd. Spyware\n", "a"},
+
+{"What security protocol protects financial information in transit online?\na. TLS\nb. WPA3\nc. WEP\nd. DRP\n", "a"},
+
+{"Older security protocol replaced by TLS to protect online communications:\na. SSL\nb. Ransomware\nc. APT\nd. DLP\n", "a"},
+
+{"A small file stored by websites to track activity or remember settings is called…\na. Cookie\nb. Rootkit\nc. Bot\nd. Trojan\n", "a"},
+
+{"A scam in which criminals impersonate trustworthy entities to steal info is…\na. Spear-phishing\nb. Phishing\nc. Spam\nd. Bluesnarfing\n", "b"},
+
+{"A highly targeted form of phishing aimed at specific individuals is…\na. Phishing\nb. Spear-phishing\nc. Bluejacking\nd. Authentication\n", "b"},
+
+{"What attack intercepts communication between two devices?\na. DoS attack\nb. MITM (man-in-the-middle)\nc. Botnet\nd. Worm replication\n", "b"},
+
+{"What Bluetooth attack steals data from a nearby device?\na. Bluejacking\nb. Bluesnarfing\nc. Spoofing\nd. Scareware\n", "b"},
+
+{"What Bluetooth attack sends unwanted messages to other devices?\na. Bluejacking\nb. Bluesnarfing\nc. Spoofing\nd. Virus spreading\n", "a"},
+
+{"What encryption method uses the same key to encrypt and decrypt?\na. Public key encryption\nb. Asymmetric encryption\nc. Symmetric encryption\nd. Root encryption\n", "c"},
+
+{"What verifies the authenticity of a digital file or message?\na. Digital signature\nb. Cookie\nc. Botnet\nd. Spyware\n", "a"},
+
+{"A digital ID issued by a trusted authority to prove website legitimacy is a…\na. Digital certificate\nb. Cookie\nc. Worm certificate\nd. Spoof token\n", "a"},
+
+{"What system monitors and blocks suspicious activity before it harms a network?\na. UPS\nb. Intrusion Prevention System (IPS)\nc. DRP\nd. WPA\n", "b"},
+
+{"An IPS system that detects unusual traffic patterns is called…\na. Macro-based system\nb. Logic detector\nc. Anomaly-based intrusion detection system\nd. Public key detector\n", "c"},
+
+{"A decoy computer set up to attract hackers and detect weaknesses is called…\na. Honeypot\nb. Botnet\nc. Rootkit\nd. Surge protector\n", "a"},
+
+{"A criminal who manipulates people into giving away confidential information is called…\na. Bot\nb. Social engineer\nc. Hacker\nd. Spoofer\n", "b"},
+
+{"A security method that verifies identity using physical traits like fingerprints is…\na. Biometrics\nb. Spoofing\nc. Encryption\nd. DLP\n", "a"},
+
+{"A technique where an attacker pretends to be someone else to steal information is…\na. Spoofing\nb. Worming\nc. Bluejacking\nd. Ransomware\n", "a"},
+
+{"What attack floods a network with traffic, causing it to slow or crash?\na. Ransomware\nb. DoS (denial-of-service) attack\nc. MITM attack\nd. APT attack\n", "b"},
+
+{"A plan that organizations use to recover from disasters such as earthquakes or fires:\na. DRP (disaster recovery plan)\nb. Spoof plan\nc. Symmetric plan\nd. Botnet protocol\n", "a"},
+
+{"A backup server that is not powered on and only used in emergencies is a…\na. Hot server\nb. Cold server\nc. Warm server\nd. Offline drive\n", "b"},
+
+{"A backup server partially ready and requiring some setup is a…\na. Warm server\nb. Hot server\nc. Cold server\nd. Auxiliary server\n", "a"},
+
+{"A backup server fully ready to take over immediately is a…\na. Warm server\nb. Hot server\nc. Cold server\nd. Standby server\n", "b"},
+
+{"What do we call switching automatically to a backup system during failure?\na. Failover\nb. Spoofing\nc. Encryption\nd. Bluejacking\n", "a"},
+
+{"A device that protects equipment from electrical voltage spikes is a…\na. Surge protector\nb. UPS\nc. Router\nd. Firewall\n", "a"},
+
+{"A device that provides temporary power during outages is a…\na. Firewall\nb. UPS (uninterruptible power supply)\nc. Cold server\nd. Biometrics scanner\n", "b"},
+
+{"The study and investigation of digital evidence for legal purposes is…\na. Cyberforensics\nb. DLP\nc. Spoofing\nd. Botnet analysis\n", "a"},
+
+{"The branch of cyberforensics focused on smartphones and mobile devices is…\na. Mobile forensics\nb. MITM analysis\nc. Device spoofing\nd. Cloud tracking\n", "a"},
+
+{"Software used to detect and remove viruses from computers is…\na. Adware\nb. Antivirus software\nc. Spyware\nd. Rootkit\n", "b"},
+
+{"Software that detects and removes spyware from computers is…\na. TLS\nb. Antispyware software\nc. Botnet defender\nd. UPS system\n", "b"},
+
+{"The database of known viruses used by antivirus programs is called…\na. Virus definitions\nb. Malware notebook\nc. Logic vault\nd. Key registry\n", "a"},
+
+{"A password designed to be hard to guess, using letters, numbers, and symbols is…\na. Simple password\nb. Strong password\nc. Spoof key\nd. Macro password\n", "b"},
+
+{"A short number used to unlock devices that is easier to enter but less secure:\na. PIN (personal identification number)\nb. Cookie\nc. Biometrics\nd. Digital key\n", "a"},
+
+{"The protection of stored and transmitted data using scrambling techniques is…\na. Encryption\nb. Spoofing\nc. Botnetting\nd. Phishing\n", "a"},
+
+{"A security mechanism that blocks unauthorized access to a network is…\na. Firewall\nb. Warm server\nc. UPS\nd. Cookie\n", "a"},
+
+{"A form of mobile malware distribution where harmful apps are posted on unofficial sites is an example of…\na. IoT hacking\nb. Mobile malware\nc. Bluesnarfing\nd. Cookie tracking\n", "b"},
+
+{"What is the process of creating coded algorithms to secure communication?\na. Cryptography\nb. Spoofing\nc. Biometrics\nd. Phishing\n", "a"},
+
+{"A Wi-Fi security method that is stronger and more secure than WPA and WEP is…\na. WEP\nb. WPA2\nc. TLS\nd. DoS\n", "b"},
+
+{"The newest Wi-Fi encryption standard designed to improve security in public Wi-Fi is…\na. WPA3\nb. WEP\nc. Botnet encryption\nd. SSL\n", "a"},
+
+{"Unwanted online pop-ups disguised as system warnings designed to scam users refer to…\na. Scareware\nb. Worms\nc. Cookies\nd. MITM attacks\n", "a"},
+
+{"Small files placed on a user’s device by websites to track preferences are called…\na. Cookies\nb. Pins\nc. Worm files\nd. Bot files\n", "a"},
+
+{"A targeted message impersonating a trusted company intended to steal data is…\na. Spear-phishing\nb. Ransomware\nc. Worm propagation\nd. Macro attack\n", "a"},
+
+{"A malicious act where criminals gain access to your phone via Bluetooth is…\na. Bluesnarfing\nb. Bluejacking\nc. Spoofing\nd. MITM\n", "a"},
+
+{"A harmless-looking Bluetooth message sent to another device without permission is…\na. Bluejacking\nb. Bluesnarfing\nc. Virus messaging\nd. Spoof pushing\n", "a"},
+
+{"Security method using fingerprint, face, or voice to authenticate a user:\na. Biometrics\nb. PIN\nc. Logic bombing\nd. Scareware\n", "a"},
+
+{"A malicious program that secretly gives a hacker deep system-level control is a…\na. Rootkit\nb. Spyware\nc. Cookie\nd. Bot\n", "a"},
+
+{"A device that ensures computers stay on temporarily during a power outage is…\na. UPS\nb. Firewall\nc. Router\nd. Server\n", "a"},
+
+{"A type of server ready to take over instantly during a hardware or software failure:\na. Hot server\nb. Cold server\nc. Warm server\nd. Backup router\n", "a"},
+
+{"The automatic switch to a backup system when the primary system fails is known as…\na. Failover\nb. Spoofing\nc. Authentication\nd. Encryption\n", "a"},
+
+{"Detecting and analyzing digital evidence for crimes is known as…\na. Cyberforensics\nb. Phishing\nc. Worm tracing\nd. Spoof analysis\n", "a"},
+
+{"The specialized branch of cyberforensics focused on phones and tablets is…\na. Mobile forensics\nb. IoT analytics\nc. TLS inspection\nd. Device spoofing\n", "a"},
+
+{"Security measure preventing voltage spikes from damaging electronics:\na. Surge protector\nb. Digital signature\nc. Certificate authority\nd. UPS\n", "a"},
+
+{"A device that monitors and blocks unauthorized incoming/outgoing network traffic is…\na. Firewall\nb. Hot server\nc. Cookie manager\nd. PIN device\n", "a"},
+
+{"Software specifically designed to remove spyware from a computer is…\na. Antispyware software\nb. Scareware\nc. Rootkit tool\nd. DoS blocker\n", "a"},
+
+{"A secure network communication protocol used for credit card and financial data:\na. TLS\nb. WPA3\nc. DLP\nd. IPS\n", "a"}
+
+
+
+}; 
+
+shuffle(quiz.begin(), quiz.end(), g);
+    cout << "=== Random Identification Quiz ===\n\n"; 
+
+    //asks the questions
+    for (int i = 0; i < quiz.size(); i++){ 
+
+    cout << "__________\n\n" << i+1 << "." << quiz[i].question << "\n\n> ";
+    string answer;
+        getline (cin, answer); 
+
+            if (turnToLowerCase(answer) == quiz[i].answer){
+                cout << "Correct!\n\n" << endl;
+                    score++;
+            }else {
+                cout << "Incorrect! the answer was: " << quiz[i].answer << "\n" << endl; 
+
+            }
+    } 
+
+    cout << "You have finished the quiz, Your final score is: " << score << endl;
+        if (score == quiz.size()){
+            cout << "You earned a perfect score! ";
+        } else if (score > quiz.size()/2) {
+            cout << "That was close you had only " <<  quiz.size()- score << " wrong. better luck next time! " << endl;
+        }else {
+            cout << "Review more dude, you got "<< quiz.size()- score << " wrong"  << endl;
+        }
+    return 0;
+}
