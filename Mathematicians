@@ -32,12 +32,91 @@ int score = 0;
 vector<Questions> quiz = {
     // LESSON 1
 
-{"Who is known as the Father of Geometry?\na. Euclid\nb. Pythagoras\nc. Fibonacci\nd. Carl Gauss\n", "A"},
-{"Which mathematician is associated with the Pythagorean Theorem?\na. Isaac Newton\nb. Pythagoras\nc. Carl Gauss\nd. Fibonacci\n", "B"},
-{"Who developed Calculus and the Laws of Motion?\na. Fibonacci\nb. Rene Descartes\nc. Isaac Newton\nd. Euclid\n", "C"},
-{"Who is called the Prince of Mathematics?\na. Fibonacci\nb. Isaac Newton\nc. Pythagoras\nd. Carl Gauss\n", "D"},
-{"Which mathematician introduced the Fibonacci Sequence?\na. Fibonacci\nb. Euclid\nc. Rene Descartes\nd. Isaac Newton\n", "A"},
-{"Who created the Cartesian Plane?\na. Isaac Newton\nb. Rene Descartes\nc. Euclid\nd. Pythagoras\n", "B"}
+{"It is a group of computers linked to each other that enables computers to communicate and share resources, data, and applications.\na. Internet\nb. Computer Network\nc. Network Protocol\nd. Cloud Storage\n", "b"},
+
+{"It is the smallest and most basic type of network that connects devices around one person such as phones, printers, and tablets.\na. WAN\nb. PAN\nc. MAN\nd. LAN\n", "b"},
+
+{"This type of network connects computers across short distances such as within a building or nearby buildings.\na. LAN\nb. WAN\nc. PAN\nd. MAN\n", "a"},
+
+{"This type of network spans a city or large campus and is bigger than a LAN but smaller than a WAN.\na. WAN\nb. MAN\nc. PAN\nd. LAN\n", "b"},
+
+{"This type of network covers very large geographic areas and connects multiple smaller networks together.\na. WAN\nb. LAN\nc. PAN\nd. MAN\n", "a"},
+
+{"It is a network topology where all devices are connected to a single main cable.\na. Star Topology\nb. Ring Topology\nc. Bus Topology\nd. Mesh Topology\n", "c"},
+
+{"It is a network topology where all devices are connected to a central hub.\na. Bus Topology\nb. Star Topology\nc. Ring Topology\nd. Hybrid Topology\n", "b"},
+
+{"It is a network topology where each device is connected to two other devices forming a circular pathway.\na. Ring Topology\nb. Bus Topology\nc. Mesh Topology\nd. Star Topology\n", "a"},
+
+{"It is a networking device that regenerates and strengthens signals so they can travel longer distances.\na. Switch\nb. Router\nc. Repeater\nd. Gateway\n", "c"},
+
+{"It is a networking device that connects multiple computers in a network and sends data to all connected devices.\na. Hub\nb. Router\nc. Bridge\nd. Switch\n", "a"},
+
+{"It is a networking device that connects two LANs and filters data using MAC addresses.\na. Router\nb. Bridge\nc. Gateway\nd. NIC\n", "b"},
+
+{"It is a networking device that forwards data packets based on IP addresses and connects different networks.\na. Switch\nb. Router\nc. Hub\nd. Repeater\n", "b"},
+
+{"It is a hardware component installed in a computer that allows it to connect to a network.\na. Router\nb. NIC\nc. Switch\nd. Hub\n", "b"},
+
+{"It is an established set of rules that determine how data is transmitted between devices in a network.\na. Network Protocol\nb. IP Address\nc. Network Cable\nd. Cloud Storage\n", "a"},
+
+{"It is a protocol that translates domain names into IP addresses so devices can locate websites.\na. HTTP\nb. DNS\nc. FTP\nd. SMTP\n", "b"},
+
+{"It is a protocol used to transfer files between a client and a server over a network.\na. FTP\nb. HTTP\nc. SMTP\nd. UDP\n", "a"},
+
+{"It is a protocol used mainly by web browsers to access and load web pages.\na. HTTP\nb. DNS\nc. TCP\nd. IP\n", "a"},
+
+{"It is a visual representation of a computer network that shows how devices and components are connected.\na. Network Protocol\nb. Network Diagram\nc. Network Cable\nd. Cloud Model\n", "b"},
+
+{"It refers to the physical and virtual components required to support cloud computing such as hardware, storage, and network resources.\na. Cloud Infrastructure\nb. Network Protocol\nc. LAN\n d. Network Diagram\n", "a"},
+
+{"It is a cloud computing model where the provider manages servers, storage, and networking over the internet.\na. SaaS\nb. PaaS\nc. IaaS\nd. LAN\n", "c"},
+
+{"It is a network topology where every device is connected to every other device with dedicated links.\na. Bus Topology\nb. Star Topology\nc. Mesh Topology\nd. Ring Topology\n", "c"},
+
+{"It is a topology that combines two or more different network topologies into one network.\na. Hybrid Topology\nb. Mesh Topology\nc. Ring Topology\nd. Bus Topology\n", "a"},
+
+{"It is a networking device that forwards data to the correct device and performs error checking before sending packets.\na. Router\nb. Hub\nc. Switch\nd. Repeater\n", "c"},
+
+{"It is a device that connects different networks that may use different communication protocols.\na. Bridge\nb. Gateway\nc. Hub\nd. NIC\n", "b"},
+
+{"It is a device that combines the functions of both a bridge and a router.\na. Router\nb. Brouter\nc. Switch\nd. Gateway\n", "b"},
+
+{"It is a type of hub that has its own power supply and can clean and boost network signals.\na. Passive Hub\nb. Intelligent Hub\nc. Active Hub\nd. Bridge Hub\n", "c"},
+
+{"It is a hub that simply passes signals along without boosting or cleaning them.\na. Active Hub\nb. Passive Hub\nc. Intelligent Hub\nd. Network Hub\n", "b"},
+
+{"It is a hub that allows administrators to monitor and manage network traffic.\na. Intelligent Hub\nb. Passive Hub\nc. Active Hub\nd. Bridge Hub\n", "a"},
+
+{"It is a type of network cable that contains a conductor, insulator, braiding, and sheath.\na. Fiber Optic Cable\nb. Twisted Pair Cable\nc. Coaxial Cable\nd. Ethernet Cable\n", "c"},
+
+{"It is a cable commonly used in modern LAN networks made of twisted pairs of copper wires.\na. Fiber Optic Cable\nb. Twisted Pair Cable\nc. Coaxial Cable\nd. Serial Cable\n", "b"},
+
+{"It is a twisted-pair cable where all pairs are wrapped in a single plastic sheath without extra shielding.\na. STP\nb. UTP\nc. FTP\nd. Coaxial\n", "b"},
+
+{"It is a twisted-pair cable where each pair has additional shielding to reduce interference.\na. UTP\nb. STP\nc. LAN Cable\nd. Coaxial Cable\n", "b"},
+
+{"It is a cable that uses light signals to transmit data over long distances.\na. Coaxial Cable\nb. Fiber Optic Cable\nc. Twisted Pair Cable\nd. Ethernet Cable\n", "b"},
+
+{"It is a fiber optic cable that carries only a single beam of light and supports longer distances.\na. MMF\nb. SMF\nc. UTP\nd. STP\n", "b"},
+
+{"It is a fiber optic cable that carries multiple beams of light and is used for shorter distances.\na. SMF\nb. MMF\nc. UTP\nd. STP\n", "b"},
+
+{"It is a protocol that assigns IP addresses automatically to devices joining a network.\na. DNS\nb. DHCP\nc. HTTP\nd. FTP\n", "b"},
+
+{"It is a protocol used for sending email messages between servers.\na. SMTP\nb. HTTP\nc. DNS\nd. TCP\n", "a"},
+
+{"It is a protocol responsible for arranging packets in order so data can be delivered correctly.\na. UDP\nb. TCP\nc. IP\nd. DNS\n", "b"},
+
+{"It is a protocol that sends data quickly without checking if all packets arrive.\na. UDP\nb. TCP\nc. FTP\nd. HTTP\n", "a"},
+
+{"It is a visual diagram showing how network components are physically arranged.\na. Logical Network Diagram\nb. Physical Network Diagram\nc. Network Protocol\nd. Network Model\n", "b"},
+
+{"It is a diagram that shows how data flows within a network including routing and addresses.\na. Logical Network Diagram\nb. Physical Network Diagram\nc. Network Cable Diagram\nd. Cloud Diagram\n", "a"},
+
+{"It is a cloud computing service where applications are delivered over the internet and managed by the provider.\na. IaaS\nb. SaaS\nc. PaaS\nd. LAN\n", "b"},
+
+{"It is a cloud service model where developers can build and run applications without managing hardware.\na. SaaS\nb. PaaS\nc. IaaS\nd. LAN\n", "b"}
 
 }; 
 
