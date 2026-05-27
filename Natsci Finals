@@ -1,0 +1,201 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <random>
+#include <cstdlib>
+using namespace std; 
+
+string turnToLowerCase (string userAnswer){
+    for (char &letter : userAnswer){
+        letter = tolower(letter); 
+
+    }
+return userAnswer;
+} 
+
+struct Questions
+{
+    string question;
+    string answer;
+};
+
+
+int main (){
+// Makes the quiz random
+random_device rd;
+mt19937 g(rd()); 
+
+int score = 0;
+
+
+vector<Questions> quiz = {
+ 
+
+    {"Glaciers are large, slow-moving masses of ice formed from compacted snow.\na. Glacier\nb. Volcano\nc. Desert\nd. Atmosphere\n", "a"},
+
+{"Massive thick sheets of ice that cover large land areas.\na. Alpine Glaciers\nb. Continental Glaciers\nc. Eskers\nd. Moraines\n", "b"},
+
+{"Rivers of ice that form in the mountains.\na. Alpine Glaciers\nb. Continental Glaciers\nc. Cirques\nd. Drumlins\n", "a"},
+
+{"Slow flow of ice over land.\na. Glacier movement\nb. Wind erosion\nc. Abrasion\nd. Deflation\n", "a"},
+
+{"Occurs within the glacier.\na. Basal sliding\nb. Internal Flow\nc. Attrition\nd. Deposition\n", "b"},
+
+{"Occurs at the base of the glacier.\na. Basal sliding\nb. Internal Flow\nc. Plucking\nd. Cirque\n", "a"},
+
+{"Moving glacier wears away and shapes the land.\na. Glacial deposition\nb. Glacial erosion\nc. Weathering\nd. Deflation\n", "b"},
+
+{"Ice pulls rocks from the ground.\na. Abrasion\nb. Attrition\nc. Plucking\nd. Deposition\n", "c"},
+
+{"Rocks carried by glaciers scrape the ground.\na. Abrasion\nb. Plucking\nc. Deflation\nd. Assimilation\n", "a"},
+
+{"Wide, steep-sided valleys formed by glaciers.\na. Cirques\nb. U-shaped valleys\nc. Horns\nd. Eskers\n", "b"},
+
+{"Bowl-shaped depressions formed by glaciers.\na. Moraines\nb. Cirques\nc. Drumlins\nd. Aretes\n", "b"},
+
+{"Sharp ridges between valleys.\na. Aretes\nb. Horns\nc. Cirques\nd. Till\n", "a"},
+
+{"Pointed mountain peaks formed by glaciers.\na. Drumlins\nb. Horns\nc. Eskers\nd. Plains\n", "b"},
+
+{"Occurs when glaciers drop materials they carry.\na. Glacial erosion\nb. Glacial deposition\nc. Wind erosion\nd. Nitrification\n", "b"},
+
+{"Unsorted sediment left by glaciers.\na. Moraine\nb. Till\nc. Loess\nd. Sand dune\n", "b"},
+
+{"Piles of rocks and debris left by glaciers.\na. Eskers\nb. Moraines\nc. Cirques\nd. Plains\n", "b"},
+
+{"Smooth elongated hills formed by glaciers.\na. Drumlin\nb. Arete\nc. Horn\nd. Valley\n", "a"},
+
+{"Long winding ridges formed by glaciers.\na. Esker\nb. Moraine\nc. Cirque\nd. Till\n", "a"},
+
+{"Flat areas of sand formed by glacial meltwater.\na. Outwash Plain\nb. Drumlin\nc. Horn\nd. Arete\n", "a"},
+
+{"A region that receives little rainfall.\na. Forest\nb. Desert\nc. Glacier\nd. Ocean\n", "b"},
+
+{"Deserts with moderate rainfall and temperatures.\na. Cold deserts\nb. Coastal deserts\nc. Semi-arid deserts\nd. Tropical deserts\n", "c"},
+
+{"Deserts found near oceans with often cool temperatures.\na. Coastal deserts\nb. Semi-arid deserts\nc. Cold deserts\nd. Polar deserts\n", "a"},
+
+{"Deserts with cold winters.\na. Semi-arid deserts\nb. Coastal deserts\nc. Cold deserts\nd. Tropical deserts\n", "c"},
+
+{"Wind removes loose particles.\na. Abrasion\nb. Deflation\nc. Attrition\nd. Deposition\n", "b"},
+
+{"Wind-blown sand wears down rocks.\na. Attrition\nb. Abrasion\nc. Deposition\nd. Nitrification\n", "b"},
+
+{"Hills or mounds of sand formed by wind.\na. Loess\nb. Sand dunes\nc. Moraines\nd. Eskers\n", "b"},
+
+{"Fine wind-blown sediments.\na. Loess\nb. Till\nc. Moraine\nd. Outwash\n", "a"},
+
+{"Wind removes and transports rocks and sediments.\na. Glacial erosion\nb. Wind erosion\nc. Assimilation\nd. Denitrification\n", "b"},
+
+{"Sand particles crash into each other.\na. Attrition\nb. Abrasion\nc. Deflation\nd. Circulation\n", "a"},
+
+{"Crescent-shaped sand dunes.\na. Transverse dunes\nb. Longitudinal dunes\nc. Barchan dunes\nd. Parabolic dunes\n", "c"},
+
+{"Long ridges of sand formed perpendicular to wind direction.\na. Transverse dunes\nb. Barchan dunes\nc. Parabolic dunes\nd. Coastal dunes\n", "a"},
+
+{"Long parallel ridges of sand.\na. Longitudinal dunes\nb. Barchan dunes\nc. Transverse dunes\nd. Drumlins\n", "a"},
+
+{"U-shaped sand dunes.\na. Parabolic dunes\nb. Barchan dunes\nc. Longitudinal dunes\nd. Transverse dunes\n", "a"},
+
+{"The layer of gases surrounding the Earth.\na. Atmosphere\nb. Hydrosphere\nc. Lithosphere\nd. Biosphere\n", "a"},
+
+{"Gas that makes up 78% of the atmosphere.\na. Oxygen\nb. Carbon dioxide\nc. Nitrogen\nd. Argon\n", "c"},
+
+{"Gas that makes up 21% of the atmosphere.\na. Nitrogen\nb. Oxygen\nc. Carbon dioxide\nd. Helium\n", "b"},
+
+{"Process of moving nitrogen between the atmosphere and soil.\na. Oxygen cycle\nb. Nitrogen Cycle\nc. Water cycle\nd. Carbon cycle\n", "b"},
+
+{"Converts nitrogen gas into ammonia.\na. Nitrification\nb. Denitrification\nc. Nitrogen Fixation\nd. Assimilation\n", "c"},
+
+{"Converts ammonia into nitrates.\na. Assimilation\nb. Nitrification\nc. Ammonification\nd. Deposition\n", "b"},
+
+{"Plants absorb nitrates from the soil.\na. Assimilation\nb. Nitrification\nc. Denitrification\nd. Attrition\n", "a"},
+
+{"Decomposition of dead organisms producing ammonia.\na. Ammonification\nb. Assimilation\nc. Nitrification\nd. Deflation\n", "a"},
+
+{"Bacteria convert nitrates back into nitrogen gas.\na. Nitrogen fixation\nb. Denitrification\nc. Assimilation\nd. Abrasion\n", "b"},
+
+{"Chemical element with the symbol O.\na. Ozone\nb. Oxygen\nc. Nitrogen\nd. Argon\n", "b"},
+
+{"Special form of oxygen found in the atmosphere.\na. Ozone\nb. Nitrogen\nc. Carbon dioxide\nd. Hydrogen\n", "a"},
+
+{"Force exerted by the weight of air.\na. Atmospheric pressure\nb. Wind erosion\nc. Coriolis Effect\nd. Climate\n", "a"},
+
+{"Instrument used to measure atmospheric pressure.\na. Thermometer\nb. Hygrometer\nc. Barometer\nd. Rain gauge\n", "c"},
+
+{"Atmospheric pressure decreases in this condition.\na. Low altitude\nb. High altitude\nc. Sea level\nd. Coastal areas\n", "b"},
+
+{"Lowest layer of the atmosphere.\na. Stratosphere\nb. Mesosphere\nc. Troposphere\nd. Exosphere\n", "c"},
+
+{"Layer of the atmosphere containing the ozone layer.\na. Mesosphere\nb. Thermosphere\nc. Stratosphere\nd. Troposphere\n", "c"},
+
+{"Coldest layer of the atmosphere.\na. Thermosphere\nb. Mesosphere\nc. Stratosphere\nd. Exosphere\n", "b"},
+
+{"Very hot atmospheric layer.\na. Thermosphere\nb. Troposphere\nc. Mesosphere\nd. Stratosphere\n", "a"},
+
+{"Outermost layer with very thin air.\na. Exosphere\nb. Thermosphere\nc. Mesosphere\nd. Troposphere\n", "a"},
+
+{"Large-scale movement of air around Earth.\na. Atmospheric circulation\nb. Coriolis Effect\nc. Wind erosion\nd. Attrition\n", "a"},
+
+{"Warm air rises near the equator in this circulation cell.\na. Polar Cell\nb. Ferrel Cell\nc. Hadley Cell\nd. Jet Stream\n", "c"},
+
+{"Air flows between warm and cold regions in this circulation cell.\na. Hadley Cell\nb. Ferrel Cell\nc. Polar Cell\nd. Monsoon Cell\n", "b"},
+
+{"Cold dense air circulates near the poles.\na. Hadley Cell\nb. Ferrel Cell\nc. Polar Cell\nd. Trade Winds\n", "c"},
+
+{"Apparent deflection of moving objects due to Earth’s rotation.\na. Coriolis Effect\nb. Atmospheric pressure\nc. Wind erosion\nd. Climate\n", "a"},
+
+{"Condition of the atmosphere at a specific time.\na. Climate\nb. Weather\nc. Atmosphere\nd. Forecast\n", "b"},
+
+{"Large body of air with similar temperature and humidity.\na. Front\nb. Air mass\nc. Cyclone\nd. Atmosphere\n", "b"},
+
+{"Boundary where two different air masses meet.\na. Air mass\nb. Front\nc. Climate\nd. Storm\n", "b"},
+
+{"Cold air pushes warm air upward causing storms.\na. Warm Front\nb. Cold Front\nc. Stationary Front\nd. Occluded Front\n", "b"},
+
+{"Warm air rises over cold air producing steady rain.\na. Warm Front\nb. Cold Front\nc. Occluded Front\nd. Stationary Front\n", "a"},
+
+{"Neither air mass moves causing long periods of clouds and rain.\na. Stationary Front\nb. Cold Front\nc. Warm Front\nd. Occluded Front\n", "a"},
+
+{"Cold air traps warm air between two cold air masses.\na. Warm Front\nb. Cold Front\nc. Occluded Front\nd. Stationary Front\n", "c"},
+
+{"Dangerous atmospheric conditions.\na. Weather\nb. Severe Weather\nc. Climate\nd. Atmosphere\n", "b"},
+
+{"Warning system used by meteorological agencies.\na. Wind Signal\nb. Barometer\nc. Forecast\nd. Climate Map\n", "a"},
+
+{"Occur when thunderstorm updrafts carry water droplets into freezing temperatures.\na. Tornadoes\nb. Hailstorms\nc. Heatwaves\nd. Floods\n", "b"},
+
+{"Long-term pattern of weather conditions in a specific area.\na. Weather\nb. Climate\nc. Atmosphere\nd. Front\n", "b"}
+
+}; 
+
+shuffle(quiz.begin(), quiz.end(), g);
+    cout << "=== Random Identification Quiz ===\n\n"; 
+
+    //asks the questions
+    for (int i = 0; i < quiz.size(); i++){ 
+
+    cout << "__________\n\n" << i+1 << "." << quiz[i].question << "\n\n> ";
+    string answer;
+        getline (cin, answer); 
+
+            if (turnToLowerCase(answer) == quiz[i].answer){
+                cout << "Correct!\n\n" << endl;
+                    score++;
+            }else {
+                cout << "Incorrect! the answer was: " << quiz[i].answer << "\n" << endl; 
+
+            }
+    } 
+
+    cout << "You have finished the quiz, Your final score is: " << score << endl;
+        if (score == quiz.size()){
+            cout << "You earned a perfect score! ";
+        } else if (score > quiz.size()/2) {
+            cout << "That was close you had only " <<  quiz.size()- score << " wrong. better luck next time! " << endl;
+        }else {
+            cout << "Review more dude, you got "<< quiz.size()- score << " wrong"  << endl;
+        }
+    return 0;
+}
